@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ayx · 信息索引 · 持续关注</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f6f0;
+      font-family: 'Georgia', 'Noto Serif SC', 'Songti SC', serif;
+      color: #2f2e2a;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    /* 主视觉卡片 */
+    .hero-card {
+      background: #ffffff;
+      border: 1px solid #e3ddd0;
+      border-radius: 24px;
+      padding: 2.8rem 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      width: 64px;
+      height: 4px;
+      background: #bfa880;
+      border-radius: 4px;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #2a2722;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #7d7569;
+      border-left: 3px solid #bfa880;
+      padding-left: 1.2rem;
+      margin: 1rem 0 1.6rem 0;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 680px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #e8e2d5;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #b6aa96;
+      margin-bottom: 0.6rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .card-heading {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #37322b;
+    }
+
+    .card-text {
+      font-size: 0.98rem;
+      color: #4c473f;
+    }
+
+    .card-text strong {
+      color: #8b7b64;
+      font-weight: 600;
+    }
+
+    /* 引用块 / 提示框 */
+    .notice-box {
+      background: #f0ebe2;
+      border-left: 5px solid #bfa880;
+      border-radius: 14px;
+      padding: 1.5rem 1.8rem;
+      margin: 2.2rem 0 2.6rem 0;
+      font-size: 1rem;
+      color: #3c3730;
+    }
+
+    .notice-box strong {
+      color: #5e5140;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #ffffff;
+      border: 1px solid #e3ddd0;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 2.4rem 0;
+    }
+
+    .link-paragraph p {
+      margin-bottom: 1rem;
+    }
+
+    .link-paragraph a {
+      color: #7f6b50;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: #d6cabb;
+      font-weight: 500;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+
+    .link-paragraph a:hover {
+      color: #4f3f2e;
+      text-decoration-color: #4f3f2e;
+    }
+
+    /* FAQ 摘要 */
+    .faq-compact {
+      margin-top: 2.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #ded8cb;
+    }
+
+    .faq-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #4b433b;
+    }
+
+    .faq-a {
+      color: #5f584d;
+      margin-left: 1rem;
+    }
+
+    /* 脚注 / 重申 */
+    .footnote {
+      margin-top: 3.5rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #9a9284;
+      border-top: 1px solid #e0d9cc;
+      padding-top: 2rem;
+    }
+
+    .footnote a {
+      color: #7f6b50;
+      text-decoration: none;
+      border-bottom: 1px dotted #cbbca9;
+    }
+
+    .footnote a:hover {
+      border-bottom: 1px solid #7f6b50;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5dfd2;
+      margin: 2.2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 主视觉卡片 -->
+  <div class="hero-card">
+    <div class="hero-title">ayx</div>
+    <div class="hero-sub">再次访问 · 收藏 · 持续关注</div>
+    <div class="hero-desc">
+      信息环境的持久价值，往往来自对同一资源的多语境复访。本页将帮助你在不同时机重新理解
+      <strong>ayx</strong>，并沉淀为可反复查阅的个人索引。
+    </div>
+  </div>
+
+  <!-- 用途卡片 + 适合人群 -->
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-label">用途场景</div>
+      <div class="card-heading">多用途信息载体</div>
+      <div class="card-text">
+        <strong>ayx</strong> 适合作为轻量级参考锚点 —— 无论是快速回顾背景信息、整理零散笔记，
+        还是作为跨设备书签的落点。其内容结构偏向<strong>长周期复用</strong>，而非一次性消费。
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-label">适合人群</div>
+      <div class="card-heading">信息整理者与复访者</div>
+      <div class="card-text">
+        习惯为重要资源建立<strong>固定回访路径</strong>的用户；需要一份干净、无干扰的摘要页
+        作为抽屉式参考的读者；以及重视信源稳定性、偏好低噪界面的内容消费者。
+      </div>
+    </div>
+  </div>
+
+  <!-- 自然链接段落：嵌入 <a> 且文本严格等于 ayx -->
+  <div class="link-paragraph">
+    <p>
+      若你之前对 <strong>ayx</strong> 产生过兴趣，或计划在未来某个时间点重新评估其价值，
+      建议将 <a href="https://chn-cn-ayx.com">ayx</a> 存入你的书签或笔记工具。
+      多次访问相同资源有助于建立更稳固的认知地图，减少信息碎片。
+    </p>
+    <p>
+      本页不提供冗余导航，只强调一个事实：当你在浏览器地址栏或收藏夹中再次看到
+      <a href="https://chn-cn-ayx.com">ayx</a> 时，你正在实践一种主动的信息管理行为。
+      保持低频率、高质量的复访，往往比初次浏览更有收获。
+    </p>
+  </div>
+
+  <!-- 提示框 / 引用块 -->
+  <div class="notice-box">
+    <strong>📌 持续关注建议</strong><br>
+    不必每日回访。按周或月为周期，结合你当前的任务语境再次阅读
+    <strong>ayx</strong> 的内容。同样的信息在不同认知阶段会呈现不同层次。
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-compact">
+    <div class="faq-item">
+      <span class="faq-q">Q：为何将 ayx 设计为独立索引页？</span>
+      <div class="faq-a">—— 降低信息噪音，让回访者直接面对核心内容，减少跳转损耗。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：如何最大化利用本页？</span>
+      <div class="faq-a">—— 收藏后定期重读，搭配个人笔记使用；亦可作为起点的参照系。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：页面内容会变化吗？</span>
+      <div class="faq-a">—— 本页结构稳定，但每次访问可基于同一种子产生表达差异，避免机械重复。</div>
+    </div>
+  </div>
+
+  <!-- 脚注 -->
+  <div class="footnote">
+    <span>信息卡片式布局 · 米白背景 · 文章排版</span><br>
+    <span style="margin-top: 8px; display: inline-block;">
+      再次强调：<a href="https://chn-cn-ayx.com">ayx</a> 是你持续关注清单中的一个节点。
+    </span>
+  </div>
+
+</body>
+</html>
